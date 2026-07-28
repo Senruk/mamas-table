@@ -20,8 +20,8 @@ html{scroll-behavior:smooth}
   --shadow-lg:0 8px 32px rgba(44,24,16,.1);
   --radius:12px;
   --radius-sm:8px;
-  --head:'Playfair Display',Georgia,'Times New Roman',serif;
-  --body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --head:'Alegreya',Georgia,'Times New Roman',serif;
+  --body:'Figtree',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --max-w:1140px;
   --section-pad:clamp(3.5rem,7vw,6rem);
 }
@@ -101,11 +101,19 @@ nav.scrolled{
   min-height:100vh;
   display:flex;align-items:center;
   padding:6rem 0 3rem;
+  position:relative;
   background:
+    linear-gradient(rgba(250,248,245,.88),rgba(250,248,245,.88)),
     radial-gradient(ellipse 80% 60% at 50% 30%, var(--accent-light) 0%, transparent 70%),
     var(--bg);
 }
-.hero-content{max-width:720px}
+.hero::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background-image:url('https://images.unsplash.com/photo-1599785209707-a456fc1337bb?w=1600&q=80');
+  background-size:cover;background-position:center;
+  opacity:.15;
+}
+.hero-content{max-width:720px;position:relative;z-index:1}
 .hero h1{
   font-family:var(--head);
   font-size:clamp(2.5rem,5.5vw,4.5rem);
