@@ -173,7 +173,7 @@ nav.scrolled{
   font-size:.95rem;
 }
 .text-center{text-align:center}
-.text-center .section-title p{margin:0 auto}
+.section-title.text-center p{margin:0 auto}
 
 /* --- Tag --- */
 .tag{
