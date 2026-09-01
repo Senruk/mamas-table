@@ -15,6 +15,19 @@
 </head>
 <body>
 
+<script>
+  if(sessionStorage.getItem('mamas-table-loaded')) {
+    document.write('<style>.loading-overlay{display:none!important}</style>')
+  } else {
+    sessionStorage.setItem('mamas-table-loaded','1')
+  }
+</script>
+<div class="loading-overlay">
+  <div class="loading-box">
+    <p class="loading-text">Mama's Table</p>
+  </div>
+</div>
+
 <a href="#main" class="skip-link">Skip to main content</a>
 
 <nav id="nav">
