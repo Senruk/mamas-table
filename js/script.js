@@ -1,6 +1,15 @@
 /* Mama's Table — Site Scripts */
 
 document.addEventListener('DOMContentLoaded',()=>{
+  // Sticky CTA – show after scrolling 200px
+  const cta=document.querySelector('.sticky-cta');
+  if(cta){
+    const showOffset=200;
+    const toggle=()=>{ cta.style.opacity = (window.scrollY>showOffset)?'1':'0'; };
+    window.addEventListener('scroll', toggle);
+    toggle();
+  }
+
 
   // --- Nav scroll ---
   const nav=document.getElementById('nav');
