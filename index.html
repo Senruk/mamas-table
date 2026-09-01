@@ -20,7 +20,7 @@
   document.addEventListener('DOMContentLoaded', function(){
     var overlay = document.querySelector('.loading-overlay');
     if (!overlay) return;
-    var minTime = 600, hardCap = 4000, done = false;
+    var minTime = 1500, hardCap = 6000, done = false;
     // If already loaded this session, skip overlay entirely
     if (sessionStorage.getItem('mamas-table-loaded')) {
       overlay.style.display = 'none';
