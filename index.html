@@ -16,35 +16,6 @@
 </head>
 <body>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function(){
-    var overlay = document.querySelector('.loading-overlay');
-    if (!overlay) return;
-    var minTime = 3000, hardCap = 10000, done = false;
-    // If already loaded this session, skip overlay entirely
-    if (sessionStorage.getItem('mamas-table-loaded')) {
-      overlay.style.display = 'none';
-      return;
-    }
-    sessionStorage.setItem('mamas-table-loaded','1');
-    function hide(){
-      if (done) return;
-      done = true;
-      overlay.classList.add('fadeout');
-      setTimeout(function(){ overlay.parentNode.removeChild(overlay); }, 500);
-    }
-    window.addEventListener('load', hide);
-    setTimeout(hide, hardCap);
-    setTimeout(function(){ if (document.readyState === 'complete') hide(); }, minTime);
-    // Final fallback – ensure overlay disappears after 6 s even if nothing else fires
-    setTimeout(hide, 6000);
-  });
-</script>
-<div class="loading-overlay">
-  <div class="loading-box">
-    <p class="loading-text">Mama's Table</p>
-  </div>
-</div>
 
 <a href="#main" class="skip-link">Skip to main content</a>
 

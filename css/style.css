@@ -267,13 +267,6 @@ a:focus-visible, button:focus-visible, .nav-toggle:focus-visible, .sticky-cta:fo
   cursor:pointer;
 }
 .sticky-cta:hover{background:var(--accent-hover);transform:translateY(-2px);}
-/* Loading overlay */
-.loading-overlay{
-  position:fixed; inset:0; z-index:99999; background:var(--bg);
-  display:flex; align-items:center; justify-content:center;
-  opacity:1; transition:opacity .5s ease-out;
-}
-.loading-overlay.fadeout{opacity:0;}
 /* Form validation UI */
 .form-error{color:var(--error);font-size:.75rem;}
 input:invalid, textarea:invalid, select:invalid{border-color:var(--error) !important;}
