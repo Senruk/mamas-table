@@ -17,7 +17,7 @@
 <body>
 
 <script>
-  (function(){
+  document.addEventListener('DOMContentLoaded', function(){
     var overlay = document.querySelector('.loading-overlay');
     if (!overlay) return;
     var minTime = 600, hardCap = 4000, done = false;
@@ -36,7 +36,9 @@
     window.addEventListener('load', hide);
     setTimeout(hide, hardCap);
     setTimeout(function(){ if (document.readyState === 'complete') hide(); }, minTime);
-  })();
+    // Final fallback – ensure overlay disappears after 6 s even if nothing else fires
+    setTimeout(hide, 6000);
+  });
 </script>
 <div class="loading-overlay">
   <div class="loading-box">
