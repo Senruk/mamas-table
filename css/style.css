@@ -131,6 +131,14 @@ nav.scrolled{
   position:relative;z-index:1;
   text-align:left;
 }
+@media(max-width:900px){
+  .hero{min-height:60vh;padding-top:5rem;padding-bottom:2.5rem}
+  .hero>#hero-video{opacity:.4}
+}
+@media(max-width:600px){
+  .hero{min-height:50vh;padding-top:4.5rem;padding-bottom:2rem}
+  .hero>#hero-video{opacity:.35}
+}
 .hero-content{max-width:720px;position:relative;z-index:1}
 .hero h1{
   font-family:var(--head);
