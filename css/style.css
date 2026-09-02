@@ -83,7 +83,7 @@ nav.scrolled{
   font-family:var(--head);font-size:1.25rem;font-weight:700;
   color:var(--ink);letter-spacing:-.01em;
 }
-.nav-logo img{width:52px;height:52px;border-radius:8px;object-fit:cover}
+.nav-logo img{width:64px;height:64px;border-radius:8px;object-fit:cover}
 .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{
