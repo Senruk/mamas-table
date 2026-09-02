@@ -137,11 +137,11 @@ nav.scrolled{
 .hero-stats{justify-content:flex-start}
 .hero-actions{justify-content:flex-start}
 @media(max-width:900px){
-  .hero{min-height:60vh;padding-top:5rem;padding-bottom:2.5rem}
+  .hero{min-height:100svh;padding-top:5rem;padding-bottom:3rem}
   .hero>#hero-video{opacity:.4}
 }
 @media(max-width:600px){
-  .hero{min-height:50vh;padding-top:4.5rem;padding-bottom:2rem}
+  .hero{min-height:100svh;padding-top:5rem;padding-bottom:3rem}
   .hero>#hero-video{opacity:.35}
 }
 .hero-content{max-width:720px;position:relative;z-index:1}
@@ -508,6 +508,7 @@ footer ul li a:hover{color:var(--accent)}
   .about-text h2{font-size:clamp(1.4rem,4vw,1.8rem)}
   .section-title h2{font-size:clamp(1.5rem,4vw,2rem)}
   .nav-logo img{width:48px;height:48px}
+  .hero{min-height:100svh;padding-top:5rem;padding-bottom:3rem}
   .sticky-cta{bottom:1rem;right:1rem;padding:.65rem 1rem;font-size:.8rem}
 }
 
