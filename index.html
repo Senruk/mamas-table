@@ -14,7 +14,28 @@
 <link rel="preload" as="image" href="hero-frames/ezgif-frame-001.jpg">
 <link rel="icon" type="image/png" href="img/logo.png">
 </head>
+<style>
+.splash{position:fixed;inset:0;z-index:9999;background:var(--ink);display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .5s ease-out}
+.splash.fadeout{opacity:0}
+.splash-logo{display:block;width:160px;height:auto;animation:splashPulse 2s ease-in-out infinite}
+@keyframes splashPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@media(prefers-reduced-motion:reduce){.splash-logo{animation:none}}
+</style>
 <body>
+<div class="splash" id="splash">
+  <img src="img/logo.png" alt="Mama's Table" class="splash-logo">
+</div>
+<script>
+(function(){
+  var splash=document.getElementById('splash');
+  if(!splash)return;
+  var minTime=600,hardCap=4000,start=Date.now(),done=false;
+  function hide(){if(done)return;done=true;splash.classList.add('fadeout');setTimeout(function(){splash.parentNode.removeChild(splash)},500);}
+  window.addEventListener('load',hide);
+  setTimeout(hide,Math.max(hardCap,0));
+  setTimeout(hide,Math.max(minTime+(Date.now()-start),minTime));
+})();
+</script>
 
 
 <a href="#main" class="skip-link">Skip to main content</a>
