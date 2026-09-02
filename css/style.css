@@ -131,6 +131,11 @@ nav.scrolled{
   position:relative;z-index:1;
   text-align:left;
 }
+.hero h1{text-align:left}
+.hero h1::after{margin:1rem 0 0}
+.hero p{text-align:left;margin-left:0;margin-right:0}
+.hero-stats{justify-content:flex-start}
+.hero-actions{justify-content:flex-start}
 @media(max-width:900px){
   .hero{min-height:60vh;padding-top:5rem;padding-bottom:2.5rem}
   .hero>#hero-video{opacity:.4}
