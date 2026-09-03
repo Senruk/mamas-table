@@ -111,10 +111,10 @@ nav.scrolled{
 .hero{
   min-height:100vh;
   display:flex;align-items:center;
-  padding:6rem 0 3rem;
+  padding:5rem 0 3rem;
   position:relative;
   background:
-    linear-gradient(rgba(250,248,245,.82),rgba(250,248,245,.82)),
+    linear-gradient(to bottom, rgba(250,248,245,.15) 0%, rgba(250,248,245,.55) 60%, rgba(250,248,245,.8) 100%),
     radial-gradient(ellipse 80% 60% at 50% 30%, var(--accent-light) 0%, transparent 70%),
     var(--bg);
   overflow:hidden;
@@ -136,10 +136,10 @@ nav.scrolled{
 .hero-stats{justify-content:flex-start}
 .hero-actions{justify-content:flex-start}
 @media(max-width:900px){
-  .hero{min-height:100svh;padding-top:5rem;padding-bottom:3rem}
+  .hero{min-height:100svh;padding-top:4.5rem;padding-bottom:2.5rem}
 }
 @media(max-width:600px){
-  .hero{min-height:100svh;padding-top:5rem;padding-bottom:3rem}
+  .hero{min-height:100svh;padding-top:4rem;padding-bottom:2rem}
 }
 .hero-content{max-width:720px;position:relative;z-index:1}
 .hero h1{
@@ -336,8 +336,8 @@ input:valid, textarea:valid, select:valid{border-color:var(--success) !important
 /* --- Values --- */
 .values-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.25rem;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;
 }
 .value-card{
   background:var(--white);
@@ -461,7 +461,7 @@ footer ul li a:hover{color:var(--accent)}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .gallery-item:nth-child(4){grid-column:auto}
   .gallery-item:nth-child(5){grid-column:auto}
-  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .values-grid{grid-template-columns:1fr}
 }
 
 /* 900px */
@@ -567,6 +567,25 @@ footer ul li a:hover{color:var(--accent)}
   font-size:.95rem;
   color:var(--ink-muted);
   font-style:italic;
+}
+/* About pull-quote */
+.about-lead{
+  font-size:1.05rem;
+  color:var(--ink-muted);
+  margin-bottom:.75rem;
+}
+.about-quote{
+  font-family:var(--head);
+  font-size:clamp(1.1rem,2.2vw,1.5rem);
+  font-style:italic;
+  font-weight:500;
+  color:var(--ink);
+  border-left:4px solid var(--accent);
+  padding:.5rem 1.25rem;
+  margin:1.25rem 0;
+  background:var(--accent-light);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  line-height:1.4;
 }
 
 /* Events section social links */
