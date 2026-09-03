@@ -87,7 +87,7 @@ nav.scrolled{
 .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{
-  font-size:.875rem;font-weight:500;color:var(--ink);
+  font-size:.875rem;font-weight:500;color:var(--white);
   transition:color .25s;position:relative;
 }
 .nav-links a::after{
@@ -95,7 +95,7 @@ nav.scrolled{
   height:2px;background:var(--accent);border-radius:1px;
   transform:scaleX(0);transition:transform .3s;
 }
-.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover{color:rgba(255,255,255,0.75)}
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-toggle{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:10px;min-width:44px;min-height:44px;box-sizing:border-box}
 .nav-cta{
@@ -467,15 +467,15 @@ footer ul li a:hover{color:var(--accent)}
 
 /* 900px */
 @media(max-width:900px){
-  #nav{background:rgba(250,248,245,.98);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--border)}
+  #nav{background:rgba(10,10,10,.95);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.1)}
   .nav-links{display:none}
   .nav-cta{display:none}
-  .nav-toggle{display:block;position:relative;z-index:201}
+  .nav-toggle{display:block;position:relative;z-index:201;color:var(--white)}
   html.nav-open,body.nav-open{overflow:hidden;height:100vh}
   .nav-open .nav-links{
     display:flex;flex-direction:column;
     position:fixed;top:60px;left:0;right:0;bottom:0;
-    background:rgba(250,248,245,.98);backdrop-filter:blur(12px);
+    background:rgba(10,10,10,.97);backdrop-filter:blur(12px);
     padding:1.5rem 2rem;gap:1.25rem;
     align-items:flex-start;
     z-index:200;overflow-y:auto;
