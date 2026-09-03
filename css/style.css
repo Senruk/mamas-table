@@ -531,12 +531,13 @@ footer ul li a:hover{color:var(--accent)}
 }
 .hero-badge svg{font-size:.9rem}
 
-/* Hero stats — sit on hero overlay, no card */
+/* Hero stats — sit on hero overlay, subtle dark scrim for contrast */
 .hero-stats{
-  background:none;
-  border-radius:0;
-  padding:0;
-  box-shadow:none;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(4px);
+  border-radius:12px;
+  padding:.75rem 1rem;
+  box-shadow:0 2px 12px rgba(0,0,0,.2);
 }
 
 /* Allergen banner */
