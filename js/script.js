@@ -115,6 +115,25 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
   }
 
+  // --- Hero video autoplay ---
+  (function(){
+    const video=document.getElementById('hero-video');
+    if(!video || video.tagName!=='VIDEO')return;
+    function tryPlay(){
+      const p=video.play();
+      if(p) p.catch(function(){
+        // Autoplay blocked — retry on user interaction
+        document.addEventListener('click',function(){video.play();},{once:true});
+        document.addEventListener('touchstart',function(){video.play();},{once:true});
+      });
+    }
+    tryPlay();
+    // Also retry when page becomes visible (tab switch, mobile tab restore)
+    document.addEventListener('visibilitychange',function(){
+      if(!document.hidden) tryPlay();
+    });
+  })();
+
   // --- Hero frame animation ---
   (function(){
     const el=document.getElementById('hero-video');
