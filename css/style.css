@@ -87,7 +87,7 @@ nav.scrolled{
 .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{
-  font-size:.875rem;font-weight:500;color:var(--ink-muted);
+  font-size:.875rem;font-weight:500;color:var(--ink);
   transition:color .25s;position:relative;
 }
 .nav-links a::after{
@@ -114,7 +114,7 @@ nav.scrolled{
   padding:5rem 0 3rem;
   position:relative;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.55) 100%),
+    linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%),
     var(--bg);
   overflow:hidden;
 }
@@ -147,9 +147,9 @@ nav.scrolled{
   font-weight:700;
   line-height:1.08;
   letter-spacing:-.02em;
-  color:#FFFFFF;
+  color:var(--ink);
   margin-bottom:1.2rem;
-  text-shadow:0 2px 8px rgba(0,0,0,0.3);
+  text-shadow:0 1px 3px rgba(0,0,0,0.12);
   text-wrap:balance;
 }
 .hero h1 .accent{color:var(--accent)}
@@ -172,9 +172,9 @@ nav.scrolled{
 }
 .btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .btn-outline{
-  background:transparent;color:var(--ink);border-color:var(--border);
+  background:var(--white);color:var(--ink);border-color:var(--border);
 }
-.btn-outline:hover{background:var(--white);border-color:var(--ink)}
+.btn-outline:hover{background:var(--bg);border-color:var(--ink)}
 .hero-stats{display:flex;gap:2.5rem;margin:1.5rem 0 2.5rem}
 .hero-stat{display:flex;align-items:baseline;gap:.35rem;flex-wrap:wrap}
 .hero-stat strong{display:inline;font-family:var(--head);font-size:1.6rem;color:var(--accent);line-height:1}
