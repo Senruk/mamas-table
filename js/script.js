@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   // --- Hero frame animation ---
   (function(){
-    const img=document.getElementById('hero-video');
-    if(!img)return;
+    const el=document.getElementById('hero-video');
+    if(!el || el.tagName==='VIDEO')return;
     const total=176,fps=30,step=1000/fps;
     const frames=[];
     for(let i=1;i<=total;i++){
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(now-last>=step){
         last=now;
         const f=frames[idx];
-        if(f.complete&&f.naturalWidth>0)img.src=f.src;
+        if(f.complete&&f.naturalWidth>0)el.src=f.src;
         idx=idx+1>total?1:idx+1;
       }
       requestAnimationFrame(loop);
