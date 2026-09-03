@@ -120,11 +120,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     const video=document.getElementById('hero-video');
     if(!video || video.tagName!=='VIDEO')return;
     function tryPlay(){
+      video.load(); // force preload
       const p=video.play();
       if(p) p.catch(function(){
         // Autoplay blocked — retry on user interaction
-        document.addEventListener('click',function(){video.play();},{once:true});
-        document.addEventListener('touchstart',function(){video.play();},{once:true});
+        function retry(){video.play().catch(function(){});}
+        document.addEventListener('click',retry,{once:true});
+        document.addEventListener('touchstart',retry,{once:true});
       });
     }
     tryPlay();
