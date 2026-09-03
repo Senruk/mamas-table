@@ -468,10 +468,10 @@ footer ul li a:hover{color:var(--accent)}
 
 /* 900px */
 @media(max-width:900px){
-  #nav{background:rgba(10,10,10,.95);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.1)}
+  #nav{background:rgba(10,10,10,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.1);position:relative;z-index:300}
   .nav-links{display:none}
   .nav-cta{display:none}
-  .nav-toggle{display:block;position:relative;z-index:201;color:var(--white)}
+  .nav-toggle{display:block;position:relative;z-index:301;color:var(--white)}
   html.nav-open,body.nav-open{overflow:hidden;height:100vh}
   .nav-open .nav-links{
     display:flex;flex-direction:column;
@@ -512,7 +512,8 @@ footer ul li a:hover{color:var(--accent)}
   .about-text h2{font-size:clamp(1.4rem,4vw,1.8rem)}
   .section-title h2{font-size:clamp(1.5rem,4vw,2rem)}
   .nav-logo img{width:48px;height:48px}
-  .sticky-cta{bottom:1rem;right:1rem;padding:.65rem 1rem;font-size:.8rem}
+  #nav{position:relative;z-index:300}
+  .sticky-cta{bottom:1rem;right:1rem;padding:.65rem 1rem;font-size:.8rem;z-index:299}
   .allergen-banner{flex-direction:column;text-align:center;gap:1rem}
   .allergen-banner h3{font-size:1.1rem}
   .events-socials{flex-direction:column;align-items:center;gap:1rem}
