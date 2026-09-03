@@ -493,8 +493,8 @@ footer ul li a:hover{color:var(--accent)}
 
 /* 600px */
 @media(max-width:600px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:.75rem}
-  .gallery-item{aspect-ratio:1/1}
+  .gallery-grid{grid-template-columns:1fr;gap:.75rem}
+  .gallery-item{aspect-ratio:4/3}
   .values-grid{grid-template-columns:1fr}
   .hero-actions{flex-direction:column;align-items:stretch;margin-top:1.25rem;gap:.75rem}
   .hero-actions .btn{width:100%;justify-content:center}
