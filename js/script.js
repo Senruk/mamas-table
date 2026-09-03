@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(form){
     const fields={
       name:{label:'Full name'},
-      email:{label:'Email address'},
+      date:{label:'Date'},
       message:{label:'Order details'}
     };
     Object.keys(fields).forEach(id=>{
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     tryPlay();
     // Also retry when page becomes visible (tab switch, mobile tab restore)
     document.addEventListener('visibilitychange',function(){
-      if(!document.hidden) tryPlay();
+      if(!document.hidden) video.play().catch(function(){});
     });
   })();
 

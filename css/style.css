@@ -130,7 +130,6 @@ nav.scrolled{
   position:relative;z-index:1;
   text-align:left;
 }
-.hero h1{text-align:left}
 .hero h1::after{margin:1rem 0 0}
 .hero p{text-align:left;margin-left:0;margin-right:0}
 .hero-stats{justify-content:flex-start}
@@ -141,7 +140,6 @@ nav.scrolled{
 @media(max-width:600px){
   .hero{min-height:100svh;padding-top:4rem;padding-bottom:2rem}
 }
-.hero-content{max-width:720px;position:relative;z-index:1}
 .hero h1{
   font-family:var(--head);
   font-size:clamp(2.5rem,5.5vw,4.5rem);
@@ -288,8 +286,8 @@ a:focus-visible, button:focus-visible, .nav-toggle:focus-visible, .sticky-cta:fo
 .sticky-cta:hover{background:var(--accent-hover);transform:translateY(-2px);}
 /* Form validation UI */
 .form-error{color:var(--error);font-size:.75rem;}
-input:invalid, textarea:invalid, select:invalid{border-color:var(--error) !important;}
-input:valid, textarea:valid, select:valid{border-color:var(--success) !important;}
+input:invalid, textarea:invalid, select:invalid{border-color:var(--error);}
+input:valid, textarea:valid, select:valid{border-color:var(--success);}
 /* Hero decorative divider */
 .hero h1::after{
   content:'';
@@ -481,8 +479,7 @@ footer ul li a:hover{color:var(--accent)}
     align-items:flex-start;
     z-index:200;overflow-y:auto;
   }
-  html.nav-open ~ .sticky-cta,
-  body.nav-open ~ .sticky-cta{display:none}
+  html.nav-open ~ .sticky-cta{display:none}
   .nav-open .nav-cta{display:inline-flex;margin-top:.5rem;margin-bottom:1.5rem}
   .about-grid{grid-template-columns:1fr}
   .about-image img{aspect-ratio:16/9;max-height:400px}
