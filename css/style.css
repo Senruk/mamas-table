@@ -379,6 +379,15 @@ input:valid, textarea:valid, select:valid{border-color:var(--success);}
 .contact-detail .icon svg{width:18px;height:18px}
 .contact-detail a:hover{color:var(--accent)}
 
+.collection-map{margin-top:.5rem;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+
+.maps-cta{margin-top:1rem}
+.maps-btn{display:inline-flex;align-items:center;gap:.5rem}
+
+.order-map{margin-top:1.25rem}
+.order-map-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;font-weight:600;color:var(--accent);margin-bottom:.6rem;text-decoration:underline;text-underline-offset:3px}
+.order-map-link:hover{color:var(--accent-dark)}
+
 .order-form{background:var(--white);padding:2rem;border-radius:var(--radius);border:1px solid var(--border)}
 .form-group{margin-bottom:1.25rem}
 .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:.35rem;color:var(--ink)}
