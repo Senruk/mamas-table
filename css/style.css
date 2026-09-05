@@ -517,7 +517,7 @@ footer ul li a:hover{color:var(--accent)}
   .order-form{padding:1.25rem}
   .about-text h2{font-size:clamp(1.4rem,4vw,1.8rem)}
   .section-title h2{font-size:clamp(1.5rem,4vw,2rem)}
-  .nav-logo img{width:80px;height:80px}
+  .nav-logo img{width:96px;height:96px}
   #nav{position:relative;z-index:300}
   .sticky-cta{bottom:1rem;right:1rem;padding:.65rem 1rem;font-size:.8rem;z-index:299}
   .allergen-banner{flex-direction:column;text-align:center;gap:1rem}
