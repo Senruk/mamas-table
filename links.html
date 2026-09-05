@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mama's Table — Links</title>
+<link rel="icon" type="image/png" href="img/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAF8F5;
+  --ink: #2C2018;
+  --accent: #E8C84A;
+  --accent-dark: #C9A82E;
+  --muted: #8A7460;
+  --card: #F2EDE3;
+  --border: #E0D8C8;
+}
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  background-image: radial-gradient(ellipse at top, rgba(232,200,74,0.12) 0%, transparent 60%);
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 4px 24px rgba(232,200,74,0.25);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: 'Alegreya', serif;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  font-weight: 800;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.tagline {
+  font-family: 'Alegreya', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: -0.25rem;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 0.95rem 1.25rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.link-card:hover {
+  border-color: var(--accent);
+  background: #EDE5D0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232,200,74,0.18);
+}
+
+.link-card:active {
+  transform: translateY(0);
+}
+
+.link-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+}
+
+.link-icon.website  { background: rgba(232,200,74,0.2); }
+.link-icon.facebook { background: rgba(24,119,242,0.15); }
+.link-icon.instagram{ background: rgba(228,64,95,0.15); }
+.link-icon.tiktok   { background: rgba(255,0,80,0.12); }
+
+.link-text {
+  flex: 1;
+}
+
+.link-text span {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 0.1rem;
+}
+
+.arrow {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 2.5rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-card { transition: none; }
+  .link-card:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <img src="img/logo.png" alt="Mama's Table" class="logo">
+    <h1>Mama's Table</h1>
+    <p class="tagline">Baked with care, made for you 🇮🇹</p>
+
+    <div class="links">
+      <a href="https://mamastable.co.uk" target="_blank" class="link-card">
+        <div class="link-icon website">🌐</div>
+        <div class="link-text">
+          Our Website
+          <span>mamastable.co.uk</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="https://www.instagram.com/mamastable87/" target="_blank" class="link-card">
+        <div class="link-icon instagram">📸</div>
+        <div class="link-text">
+          Instagram
+          <span>@mamastable87</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="https://www.facebook.com/mamastable87" target="_blank" class="link-card">
+        <div class="link-icon facebook">👍</div>
+        <div class="link-text">
+          Facebook
+          <span>Mama's Table</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="https://www.tiktok.com/@mamas.table15" target="_blank" class="link-card">
+        <div class="link-icon tiktok">🎵</div>
+        <div class="link-text">
+          TikTok
+          <span>@mamas.table15</span>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <footer>
+      Traditional Italian food in Caerphilly 🇮🇹
+    </footer>
+  </div>
+</body>
+</html>
