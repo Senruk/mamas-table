@@ -326,12 +326,8 @@ input:valid, textarea:valid, select:valid{border-color:var(--success);}
   transition:opacity .35s,transform .35s;
 }
 .gallery-item:hover .gallery-label{opacity:1;transform:translateY(0)}
-.gallery-item:nth-child(4),
-.gallery-item:nth-child(5){
-  aspect-ratio:auto;
-}
-.gallery-item:nth-child(4){grid-column:span 2}
-.gallery-item:nth-child(5){grid-column:span 2}
+.gallery-item:nth-child(4){grid-column:span 2;aspect-ratio:16/9}
+.gallery-item:nth-child(5){grid-column:span 2;aspect-ratio:16/9}
 
 /* --- Values --- */
 .values-grid{
