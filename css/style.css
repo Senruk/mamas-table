@@ -484,13 +484,46 @@ footer ul li a:hover{color:var(--accent)}
     display:flex;flex-direction:column;
     position:fixed;top:60px;left:0;right:0;bottom:0;
     background:rgba(10,10,10,.97);backdrop-filter:blur(12px);
-    padding:1.5rem 2rem;gap:1.25rem;
+    padding:1.5rem 2rem 2rem;
     align-items:flex-start;
     z-index:200;overflow-y:auto;
+    transform:translateX(0);
+    animation:navSlideIn .3s cubic-bezier(.22,1,.36,1) both;
   }
+  @keyframes navSlideIn{
+    from{transform:translateX(100%);opacity:.6}
+    to{transform:translateX(0);opacity:1}
+  }
+  .nav-open .nav-links a{
+    font-size:1.05rem;
+    padding:.75rem 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    width:100%;
+    opacity:0;
+    animation:navLinkIn .25s ease both;
+  }
+  .nav-open .nav-links a:nth-child(1){animation-delay:.05s}
+  .nav-open .nav-links a:nth-child(2){animation-delay:.1s}
+  .nav-open .nav-links a:nth-child(3){animation-delay:.15s}
+  .nav-open .nav-links a:nth-child(4){animation-delay:.2s}
+  .nav-open .nav-links a:nth-child(5){animation-delay:.25s}
+  .nav-open .nav-links a:nth-child(6){animation-delay:.3s}
+  .nav-open .nav-links a:nth-child(7){animation-delay:.35s}
+  @keyframes navLinkIn{
+    from{opacity:0;transform:translateX(-8px)}
+    to{opacity:1;transform:translateX(0)}
+  }
+  .nav-open .nav-links a:last-child{border-bottom:none}
+  .nav-open .nav-links .nav-socials{display:flex;flex-direction:row;gap:.75rem;padding:1.25rem 0 0;opacity:0;animation:navLinkIn .25s ease .4s both}
   html.nav-open ~ .sticky-cta{display:none}
   .nav-open .nav-cta{display:inline-flex;margin-top:.5rem;margin-bottom:1.5rem}
   .nav-open .nav-toggle{position:fixed;top:.875rem;right:1rem;z-index:9999;width:auto;height:auto}
+  /* Hamburger → X morphing */
+  .nav-open .nav-toggle svg{transform:rotate(0deg)}
+  .nav-open .nav-toggle svg line:nth-child(1){transform:rotate(45deg) translate(5.5px,5.5px);transform-origin:center}
+  .nav-open .nav-toggle svg line:nth-child(2){opacity:0;transform:scaleX(0)}
+  .nav-open .nav-toggle svg line:nth-child(3){transform:rotate(-45deg) translate(5.5px,-5.5px);transform-origin:center}
+  .nav-toggle svg line{transition:transform .25s,opacity .2s}
   .about-grid{grid-template-columns:1fr}
   .about-image img{aspect-ratio:16/9;max-height:400px}
   .contact-grid{grid-template-columns:1fr}
