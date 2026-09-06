@@ -106,6 +106,13 @@
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
 .gallery-label{opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
 .gallery-item:hover .gallery-label,.gallery-item:focus-within .gallery-label{opacity:1;transform:translateY(0)}
+.gallery-item{cursor:zoom-in}
+/* Lightbox */
+#lightbox{display:none;position:fixed;inset:0;z-index:9990;background:rgba(10,8,6,.92);align-items:center;justify-content:center;padding:1rem}
+#lightbox.open{display:flex}
+#lightbox-img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#lightbox-close{position:absolute;top:1rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;line-height:1;padding:.5rem;opacity:.8}
+#lightbox-close:hover{opacity:1}
 @media(max-width: 1024px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
 @media(max-width: 900px) {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
@@ -188,6 +195,7 @@
 <div class="splash" id="splash">
   <img src="img/logo.png" alt="Mama's Table" class="splash-logo">
 </div>
+<div id="lightbox" role="dialog" aria-label="Product image viewer"><img id="lightbox-img" alt=""><button id="lightbox-close" aria-label="Close image">&times;</button></div>
 <div class="terms-backdrop" id="terms-backdrop" role="dialog" aria-modal="true" aria-labelledby="terms-title" style="display:none">
   <div class="terms-modal">
     <h2 id="terms-title">Before you order</h2>
@@ -218,6 +226,24 @@
     localStorage.setItem('mamas-terms-accepted','1');
     backdrop.style.display='none';
   });
+})();
+(function(){
+  var lb=document.getElementById('lightbox');
+  var lbImg=document.getElementById('lightbox-img');
+  var lbClose=document.getElementById('lightbox-close');
+  if(!lb||!lbImg||!lbClose)return;
+  document.querySelectorAll('.gallery-item img').forEach(function(img){
+    img.parentElement.addEventListener('click',function(){
+      lbImg.src=img.src;
+      lbImg.alt=img.alt||'Product image';
+      lb.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeLb(){lb.classList.remove('open');lbImg.src='';document.body.style.overflow='';}
+  lbClose.addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('open'))closeLb();});
 })();
 </script>
 
