@@ -518,12 +518,10 @@ footer ul li a:hover{color:var(--accent)}
   html.nav-open ~ .sticky-cta{display:none}
   .nav-open .nav-cta{display:inline-flex;margin-top:.5rem;margin-bottom:1.5rem}
   .nav-open .nav-toggle{position:fixed;top:.875rem;right:1rem;z-index:9999;width:auto;height:auto}
-  /* Hamburger → X morphing */
-  .nav-open .nav-toggle svg{transform:rotate(0deg)}
-  .nav-open .nav-toggle svg line:nth-child(1){transform:rotate(45deg) translate(5.5px,5.5px);transform-origin:center}
-  .nav-open .nav-toggle svg line:nth-child(2){opacity:0;transform:scaleX(0)}
-  .nav-open .nav-toggle svg line:nth-child(3){transform:rotate(-45deg) translate(5.5px,-5.5px);transform-origin:center}
-  .nav-toggle svg line{transition:transform .25s,opacity .2s}
+  /* Hamburger / close icon swap */
+  .nav-toggle .icon-close{display:none}
+  .nav-open .nav-toggle .icon-hamburger{display:none}
+  .nav-open .nav-toggle .icon-close{display:block}
   .about-grid{grid-template-columns:1fr}
   .about-image img{aspect-ratio:16/9;max-height:400px}
   .contact-grid{grid-template-columns:1fr}

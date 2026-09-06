@@ -20,14 +20,19 @@ document.addEventListener('DOMContentLoaded',()=>{
   // --- Mobile nav toggle ---
   const toggle=document.querySelector('.nav-toggle');
   const html=document.documentElement;
-  toggle?.addEventListener('click',()=>{
-    const isOpen=html.classList.toggle('nav-open');
-    toggle.setAttribute('aria-expanded',isOpen);
-  });
+  if(toggle){
+    toggle.addEventListener('click',()=>{
+      const isOpen=html.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded',isOpen);
+    });
+  }
 
   // Close nav on link click
   document.querySelectorAll('.nav-links a').forEach(a=>{
-    a.addEventListener('click',()=>html.classList.remove('nav-open'));
+    a.addEventListener('click',()=>{
+      html.classList.remove('nav-open');
+      toggle?.setAttribute('aria-expanded','false');
+    });
   });
 
   // --- Scroll reveal ---
