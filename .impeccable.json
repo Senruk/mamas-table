@@ -14,6 +14,11 @@
       "rule": "numbered-section-markers",
       "files": ["terms.html", "privacy.html"],
       "reason": "Legal documents use standard section numbering (Section 1, 2, 3) which triggers the AI marker rule — this is correct legal formatting, not AI editorial scaffolding"
+    },
+    {
+      "rule": "side-tab",
+      "files": ["css/style.css"],
+      "reason": "4px left-border accent on callout/quote blocks is an intentional brand emphasis style — deliberate design choice, not an AI side-tab tell"
     }
   ]
 }

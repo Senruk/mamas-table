@@ -490,6 +490,7 @@ footer ul li a:hover{color:var(--accent)}
   }
   html.nav-open ~ .sticky-cta{display:none}
   .nav-open .nav-cta{display:inline-flex;margin-top:.5rem;margin-bottom:1.5rem}
+  .nav-open .nav-toggle{position:fixed;top:.875rem;right:1rem;z-index:9999;width:auto;height:auto}
   .about-grid{grid-template-columns:1fr}
   .about-image img{aspect-ratio:16/9;max-height:400px}
   .contact-grid{grid-template-columns:1fr}
