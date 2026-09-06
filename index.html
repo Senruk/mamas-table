@@ -74,17 +74,18 @@
 @keyframes splashPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 @media(prefers-reduced-motion:reduce){.splash-logo{animation:none}}
 /* Terms Modal */
-.terms-backdrop{position:fixed;inset:0;z-index:9998;background:rgba(20,15,10,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem}
-.terms-modal{background:var(--white,var(--bg));border-radius:16px;padding:2.5rem;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center}
-.terms-modal h2{font-family:var(--head);font-size:1.5rem;margin-bottom:.75rem}
-.terms-modal p{color:var(--ink-muted,#6b5b4e);font-size:.9rem;line-height:1.65;margin-bottom:1.5rem}
+.terms-backdrop{position:fixed;bottom:1.5rem;left:1.5rem;z-index:9998;background:rgba(20,15,10,.92);backdrop-filter:blur(8px);border-radius:16px;padding:1.5rem;max-width:320px;width:calc(100vw - 3rem);box-shadow:0 8px 32px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}
+.terms-modal{text-align:left}
+.terms-modal h2{font-family:var(--head);font-size:1rem;margin-bottom:.5rem;color:var(--white,#faf8f5)}
+.terms-modal p{color:rgba(250,248,245,.75);font-size:.8rem;line-height:1.6;margin-bottom:1rem}
 .terms-modal p a{color:var(--accent,#b07d4e);text-decoration:underline}
-.terms-btns{display:flex;gap:1rem;justify-content:center}
-.terms-btns .btn{padding:.75rem 1.5rem;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;display:inline-block}
+.terms-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.terms-btns .btn{padding:.6rem 1rem;border-radius:8px;font-size:.8rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;display:inline-block}
 .btn-accept{background:var(--accent,#b07d4e);color:#fff}
 .btn-accept:hover{background:#9a6a3a}
-.btn-decline{background:transparent;color:var(--ink-muted,#6b5b4e);border:1.5px solid var(--border,#d4c4b0)}
-.btn-decline:hover{border-color:var(--ink-muted)}
+.btn-decline{background:transparent;color:rgba(250,248,245,.6);border:1px solid rgba(255,255,255,.2)}
+.btn-decline:hover{color:rgba(250,248,245,.9);border-color:rgba(255,255,255,.4)}
+@media(max-width:480px){.terms-backdrop{bottom:1rem;left:1rem;right:1rem;max-width:none;padding:1.25rem}}
 </style>
 <body>
 <div class="splash" id="splash">
