@@ -141,6 +141,18 @@
 }
 .allergen-banner h3{font-family:var(--head);font-size:1.1rem;font-weight:700;margin-bottom:.4rem}
 .allergen-banner p{font-size:.9rem;color:var(--ink-muted);line-height:1.6}
+/* Terms Modal */
+.terms-backdrop{position:fixed;inset:0;z-index:9998;background:rgba(20,15,10,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem}
+.terms-modal{background:var(--white,var(--bg));border-radius:16px;padding:2.5rem;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center}
+.terms-modal h2{font-family:var(--head);font-size:1.5rem;margin-bottom:.75rem}
+.terms-modal p{color:var(--ink-muted,#6b5b4e);font-size:.9rem;line-height:1.65;margin-bottom:1.5rem}
+.terms-modal p a{color:var(--accent,#b07d4e);text-decoration:underline}
+.terms-btns{display:flex;gap:1rem;justify-content:center}
+.terms-btns .btn{padding:.75rem 1.5rem;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;display:inline-block}
+.btn-accept{background:var(--accent,#b07d4e);color:#fff}
+.btn-accept:hover{background:#9a6a3a}
+.btn-decline{background:transparent;color:var(--ink-muted,#6b5b4e);border:1.5px solid var(--border,#d4c4b0)}
+.btn-decline:hover{border-color:var(--ink-muted)}
 </style>
 <link rel="icon" type="image/png" href="img/logo.png">
 </head>
@@ -155,6 +167,16 @@
 <div class="splash" id="splash">
   <img src="img/logo.png" alt="Mama's Table" class="splash-logo">
 </div>
+<div class="terms-backdrop" id="terms-backdrop" role="dialog" aria-modal="true" aria-labelledby="terms-title" style="display:none">
+  <div class="terms-modal">
+    <h2 id="terms-title">Before you order</h2>
+    <p>Please read our <a href="terms.html" target="_blank">Terms & Conditions</a> before placing an order. Key points: minimum 48 hours notice, collection only from Caerphilly, all orders are final once deposit is paid.</p>
+    <div class="terms-btns">
+      <button class="btn btn-accept" id="terms-accept">I Accept &amp; Continue</button>
+      <a href="terms.html" class="btn btn-decline" target="_blank">Read T&Cs First</a>
+    </div>
+  </div>
+</div>
 <script>
 (function(){
   var splash=document.getElementById('splash');
@@ -164,6 +186,17 @@
   window.addEventListener('load',hide);
   setTimeout(hide,Math.max(hardCap,0));
   setTimeout(hide,Math.max(minTime+(Date.now()-start),minTime));
+})();
+(function(){
+  var backdrop=document.getElementById('terms-backdrop');
+  var accept=document.getElementById('terms-accept');
+  if(!backdrop||!accept)return;
+  if(localStorage.getItem('mamas-terms-accepted')){backdrop.style.display='none';return;}
+  backdrop.style.display='flex';
+  accept.addEventListener('click',function(){
+    localStorage.setItem('mamas-terms-accepted','1');
+    backdrop.style.display='none';
+  });
 })();
 </script>
 
@@ -227,7 +260,7 @@
         <span class="gallery-label">2 Tier Birthday Cake</span>
       </div>
       <div class="gallery-item rv rv-1">
-        <img src="photos/Cakes/Birthday cake with pastry cream and berries.jpg" alt="Birthday Cake with Pastry Cream and Berries — Mama's Table" loading="lazy">
+        <img src="photos/Cakes/Birthday cake with pastry cream and butter cream decoration.jpg" alt="Birthday Cake with Pastry Cream and Berries — Mama's Table" loading="lazy">
         <span class="gallery-label">Pastry Cream & Berries Cake</span>
       </div>
       <div class="gallery-item rv rv-2">
@@ -235,7 +268,7 @@
         <span class="gallery-label">Birthday Naked Cake</span>
       </div>
       <div class="gallery-item rv">
-        <img src="photos/Cakes/Chocolate Birthday Cake.jpg" alt="Chocolate Birthday Cake — Mama's Table" loading="lazy">
+        <img src="photos/Cakes/Chocolate Birthday Cake .jpg" alt="Chocolate Birthday Cake — Mama's Table" loading="lazy">
         <span class="gallery-label">Chocolate Birthday Cake</span>
       </div>
       <div class="gallery-item rv rv-1">
@@ -395,7 +428,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item rv">
-        <img src="photos/Cheescake/Bourbon cheescake.jpg" alt="Bourbon Cheesecake — Mama's Table" loading="lazy">
+        <img src="photos/Cheescake/Burbon cheescake.jpg" alt="Bourbon Cheesecake — Mama's Table" loading="lazy">
         <span class="gallery-label">Bourbon Cheesecake</span>
       </div>
       <div class="gallery-item rv rv-1">
@@ -643,15 +676,15 @@
         <span class="gallery-label">Fresh Pasta</span>
       </div>
       <div class="gallery-item rv rv-1">
-        <img src="photos/ITALIAN/Fresh Homemade Pasta/Fresh tagliatelle.jpg" alt="Fresh Tagliatelle — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Fresh Homemade Pasta/Fresh tagliatelle pasta.jpg" alt="Fresh Tagliatelle — Mama's Table" loading="lazy">
         <span class="gallery-label">Fresh Tagliatelle</span>
       </div>
       <div class="gallery-item rv rv-2">
-        <img src="photos/ITALIAN/Fresh Homemade Pasta/Ravioli filled with ricotta and spinach.jpg" alt="Ricotta & Spinach Ravioli — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Fresh Homemade Pasta/Ravioli filled with Ricotta & Spinach.jpg" alt="Ricotta & Spinach Ravioli — Mama's Table" loading="lazy">
         <span class="gallery-label">Ricotta & Spinach Ravioli</span>
       </div>
       <div class="gallery-item rv">
-        <img src="photos/ITALIAN/Fresh Homemade Pasta/Ravioli filled with meat.jpg" alt="Meat Ravioli — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Fresh Homemade Pasta/Honey & Nduja Ravioli.jpg" alt="Meat Ravioli — Mama's Table" loading="lazy">
         <span class="gallery-label">Meat Ravioli</span>
       </div>
       <div class="gallery-item rv rv-1">
@@ -659,7 +692,7 @@
         <span class="gallery-label">Salmon Ravioli</span>
       </div>
       <div class="gallery-item rv rv-2">
-        <img src="photos/ITALIAN/Fresh Homemade Pasta/Tomato orecchiette.jpg" alt="Tomato Orecchiette — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Fresh Homemade Pasta/Tomato orecchiette (pasta) with dry ricotta cheese.jpg" alt="Tomato Orecchiette — Mama's Table" loading="lazy">
         <span class="gallery-label">Tomato Orecchiette</span>
       </div>
       <div class="gallery-item rv">
@@ -672,11 +705,11 @@
     <h3 style="font-family:var(--head);font-size:1.3rem;margin:2rem 0 1rem;">Italian Desserts</h3>
     <div class="gallery-grid" style="margin-bottom:2rem;">
       <div class="gallery-item rv">
-        <img src="photos/ITALIAN/Italian Specialty/Dessert/Assorted Italian Desserts.jpg" alt="Assorted Italian Desserts — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Dessert/Assorted Italian pastry.jpg" alt="Assorted Italian Desserts — Mama's Table" loading="lazy">
         <span class="gallery-label">Assorted Italian Desserts</span>
       </div>
       <div class="gallery-item rv rv-1">
-        <img src="photos/ITALIAN/Italian Specialty/Dessert/Cannolo siciliano.jpg" alt="Cannolo Siciliano — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Dessert/Cannolo shell.jpg" alt="Cannolo Siciliano — Mama's Table" loading="lazy">
         <span class="gallery-label">Cannolo Siciliano</span>
       </div>
       <div class="gallery-item rv rv-2">
@@ -684,15 +717,15 @@
         <span class="gallery-label">Cassata</span>
       </div>
       <div class="gallery-item rv">
-        <img src="photos/ITALIAN/Italian Specialty/Dessert/Classic tiramisu'.jpg" alt="Classic Tiramisu — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Dessert/Classic tiramisu' tray.jpg" alt="Classic Tiramisu — Mama's Table" loading="lazy">
         <span class="gallery-label">Classic Tiramisu</span>
       </div>
       <div class="gallery-item rv rv-1">
-        <img src="photos/ITALIAN/Italian Specialty/Dessert/Nutella O'land.jpg" alt="Nutella O'land — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Dessert/Nutella Occhi di Bue.jpg" alt="Nutella O'land — Mama's Table" loading="lazy">
         <span class="gallery-label">Nutella O'land</span>
       </div>
       <div class="gallery-item rv rv-2">
-        <img src="photos/ITALIAN/Italian Specialty/Dessert/Sicilian cannolo.jpg" alt="Sicilian Cannolo — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Dessert/Sicilian Cannoli.jpg" alt="Sicilian Cannolo — Mama's Table" loading="lazy">
         <span class="gallery-label">Sicilian Cannolo</span>
       </div>
     </div>
@@ -701,19 +734,19 @@
     <h3 style="font-family:var(--head);font-size:1.3rem;margin:2rem 0 1rem;">Italian Savoury</h3>
     <div class="gallery-grid" style="margin-bottom:2rem;">
       <div class="gallery-item rv">
-        <img src="photos/ITALIAN/Italian Specialty/Savoury/Arancini - Bolognese & peas.jpg" alt="Arancini Bolognese & Peas — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Savoury/Arancini-Bolognese filling.jpg" alt="Arancini Bolognese & Peas — Mama's Table" loading="lazy">
         <span class="gallery-label">Arancini Bolognese & Peas</span>
       </div>
       <div class="gallery-item rv rv-1">
-        <img src="photos/ITALIAN/Italian Specialty/Savoury/Classic bombs.jpg" alt="Classic Bombs — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Savoury/Meatball.jpg" alt="Classic Bombs — Mama's Table" loading="lazy">
         <span class="gallery-label">Classic Bombs</span>
       </div>
       <div class="gallery-item rv rv-2">
-        <img src="photos/ITALIAN/Italian Specialty/Savoury/Homemade Lasagna.jpg" alt="Homemade Lasagna — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Savoury/Classic Lasagna.jpg" alt="Homemade Lasagna — Mama's Table" loading="lazy">
         <span class="gallery-label">Homemade Lasagna</span>
       </div>
       <div class="gallery-item rv">
-        <img src="photos/ITALIAN/Italian Specialty/Savoury/Homemade Meatballs.jpg" alt="Homemade Meatballs — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Savoury/Meatball.jpg" alt="Homemade Meatballs — Mama's Table" loading="lazy">
         <span class="gallery-label">Homemade Meatballs</span>
       </div>
       <div class="gallery-item rv rv-1">
@@ -721,7 +754,7 @@
         <span class="gallery-label">Nduja Arancini</span>
       </div>
       <div class="gallery-item rv rv-2">
-        <img src="photos/ITALIAN/Italian Specialty/Savoury/Pistachio Arancini.jpg" alt="Pistachio Arancini — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Italian Specialty/Savoury/Pistachio and speck Arancino.jpg" alt="Pistachio Arancini — Mama's Table" loading="lazy">
         <span class="gallery-label">Pistachio Arancini</span>
       </div>
     </div>
@@ -734,7 +767,7 @@
         <span class="gallery-label">Chocolate Panettone</span>
       </div>
       <div class="gallery-item rv rv-1">
-        <img src="photos/ITALIAN/Festivity/Christmas/Classic panettone.jpg" alt="Classic Panettone — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Festivity/Christmas/Classic panettone .jpg" alt="Classic Panettone — Mama's Table" loading="lazy">
         <span class="gallery-label">Classic Panettone</span>
       </div>
       <div class="gallery-item rv rv-2">
@@ -746,11 +779,11 @@
         <span class="gallery-label">Pistachio Panettone</span>
       </div>
       <div class="gallery-item rv rv-1">
-        <img src="photos/ITALIAN/Festivity/Easter/Assorted Easter Eggs.jpg" alt="Assorted Easter Eggs — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Festivity/Easter/Assorted Easter Egg.jpg" alt="Assorted Easter Eggs — Mama's Table" loading="lazy">
         <span class="gallery-label">Assorted Easter Eggs</span>
       </div>
       <div class="gallery-item rv rv-2">
-        <img src="photos/ITALIAN/Festivity/Easter/Sicilian Cannoli Easter Eggs.jpg" alt="Sicilian Cannoli Easter Eggs — Mama's Table" loading="lazy">
+        <img src="photos/ITALIAN/Festivity/Easter/Sicilian Cannoli Easter Egg.jpg" alt="Sicilian Cannoli Easter Eggs — Mama's Table" loading="lazy">
         <span class="gallery-label">Sicilian Cannoli Easter Eggs</span>
       </div>
     </div>
@@ -767,7 +800,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item rv">
-        <img src="photos/Other/Crema Regina and jammie dodgers doughnuts.jpg" alt="Crema Regina & Jammie Dodgers Doughnuts — Mama's Table" loading="lazy">
+        <img src="photos/Other/Crema Regina and jammie dodgers dounut.jpg" alt="Crema Regina & Jammie Dodgers Doughnuts — Mama's Table" loading="lazy">
         <span class="gallery-label">Crema Regina & Jammie Dodgers Doughnuts</span>
       </div>
       <div class="gallery-item rv rv-1">

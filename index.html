@@ -73,10 +73,32 @@
 .splash-logo{display:block;width:160px;height:auto;animation:splashPulse 2s ease-in-out infinite}
 @keyframes splashPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 @media(prefers-reduced-motion:reduce){.splash-logo{animation:none}}
+/* Terms Modal */
+.terms-backdrop{position:fixed;inset:0;z-index:9998;background:rgba(20,15,10,.7);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:1rem}
+.terms-modal{background:var(--white,var(--bg));border-radius:16px;padding:2.5rem;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center}
+.terms-modal h2{font-family:var(--head);font-size:1.5rem;margin-bottom:.75rem}
+.terms-modal p{color:var(--ink-muted,#6b5b4e);font-size:.9rem;line-height:1.65;margin-bottom:1.5rem}
+.terms-modal p a{color:var(--accent,#b07d4e);text-decoration:underline}
+.terms-btns{display:flex;gap:1rem;justify-content:center}
+.terms-btns .btn{padding:.75rem 1.5rem;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;border:none;text-decoration:none;display:inline-block}
+.btn-accept{background:var(--accent,#b07d4e);color:#fff}
+.btn-accept:hover{background:#9a6a3a}
+.btn-decline{background:transparent;color:var(--ink-muted,#6b5b4e);border:1.5px solid var(--border,#d4c4b0)}
+.btn-decline:hover{border-color:var(--ink-muted)}
 </style>
 <body>
 <div class="splash" id="splash">
   <img src="img/logo.png" alt="Mama's Table" class="splash-logo">
+</div>
+<div class="terms-backdrop" id="terms-backdrop" role="dialog" aria-modal="true" aria-labelledby="terms-title" style="display:none">
+  <div class="terms-modal">
+    <h2 id="terms-title">Before you order</h2>
+    <p>Please read our <a href="terms.html" target="_blank">Terms & Conditions</a> before placing an order. Key points: minimum 48 hours notice, collection only from Caerphilly, all orders are final once deposit is paid.</p>
+    <div class="terms-btns">
+      <button class="btn btn-accept" id="terms-accept">I Accept &amp; Continue</button>
+      <a href="terms.html" class="btn btn-decline" target="_blank">Read T&Cs First</a>
+    </div>
+  </div>
 </div>
 <script>
 (function(){
@@ -87,6 +109,17 @@
   window.addEventListener('load',hide);
   setTimeout(hide,Math.max(hardCap,0));
   setTimeout(hide,Math.max(minTime+(Date.now()-start),minTime));
+})();
+(function(){
+  var backdrop=document.getElementById('terms-backdrop');
+  var accept=document.getElementById('terms-accept');
+  if(!backdrop||!accept)return;
+  if(localStorage.getItem('mamas-terms-accepted')){backdrop.style.display='none';return;}
+  backdrop.style.display='flex';
+  accept.addEventListener('click',function(){
+    localStorage.setItem('mamas-terms-accepted','1');
+    backdrop.style.display='none';
+  });
 })();
 </script>
 
