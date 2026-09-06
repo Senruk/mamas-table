@@ -470,6 +470,7 @@ footer ul li a:hover{color:var(--accent)}
   #nav{background:rgba(10,10,10,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(255,255,255,.1);position:relative;z-index:300}
   .nav-links{display:none}
   .nav-cta{display:none}
+  .nav-socials{display:none}
   .nav-burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
   .nav-burger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s ease}
   .nav-burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -493,7 +494,7 @@ footer ul li a:hover{color:var(--accent)}
   .nav-links.is-open a:nth-child(6){animation-delay:.3s}
   .nav-links.is-open a:nth-child(7){animation-delay:.35s}
   @keyframes navLinkIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .nav-links.is-open .nav-socials{flex-direction:row;gap:.75rem;padding-top:1rem;opacity:0;animation:navLinkIn .3s ease .4s both}
+  .nav-links.is-open ~ .nav-socials{flex-direction:row;gap:.75rem;padding-top:1rem;opacity:0;animation:navLinkIn .3s ease .4s both}
   .nav-links.is-open .nav-cta{display:inline-flex;margin-top:.5rem}
   .nav-links.is-open a::after{display:none}
   html.nav-open ~ .sticky-cta{display:none}
