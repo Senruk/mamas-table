@@ -136,6 +136,12 @@ nav.scrolled{
 .hero-actions{justify-content:flex-start}
 @media(max-width:900px){
   .hero{min-height:auto;align-items:flex-start;padding-top:calc(4.5rem + env(safe-area-inset-top));padding-bottom:2.5rem}
+  .hero-content > .rv{display:flex;flex-direction:column}
+  .hero h1{order:1}
+  .hero p{order:2}
+  .hero-actions{order:3}
+  .hero-badges{order:4}
+  .hero-stats{order:5}
 }
 @media(max-width:600px){
   .hero{min-height:auto;align-items:flex-start;padding-top:calc(4rem + env(safe-area-inset-top));padding-bottom:2rem}
