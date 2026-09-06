@@ -18,22 +18,28 @@ document.addEventListener('DOMContentLoaded',()=>{
   }
 
   // --- Mobile nav toggle ---
-  const toggle=document.querySelector('.nav-toggle');
-  const html=document.documentElement;
-  if(toggle){
-    toggle.addEventListener('click',()=>{
-      const isOpen=html.classList.toggle('nav-open');
-      toggle.setAttribute('aria-expanded',isOpen);
+  var burger=document.querySelector('.nav-burger'),links=document.querySelector('.nav-links');
+  if(burger&&links){
+    burger.addEventListener('click',function(){
+      var isOpen=links.classList.toggle('is-open');
+      burger.classList.toggle('is-open',isOpen);
+      burger.setAttribute('aria-expanded',isOpen?'true':'false');
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        links.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&links.classList.contains('is-open')){
+        links.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      }
     });
   }
-
-  // Close nav on link click
-  document.querySelectorAll('.nav-links a').forEach(a=>{
-    a.addEventListener('click',()=>{
-      html.classList.remove('nav-open');
-      toggle?.setAttribute('aria-expanded','false');
-    });
-  });
 
   // --- Scroll reveal ---
   if(window.matchMedia('(prefers-reduced-motion:no-preference)').matches){
