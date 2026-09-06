@@ -1,0 +1,14 @@
+{
+  "ignore": [
+    {
+      "rule": "em-dash-overuse",
+      "files": ["privacy.html"],
+      "reason": "Em-dashes as definition-list markers (Name —, Order details —) are standard legal/policy document formatting, not AI cadence"
+    },
+    {
+      "rule": "numbered-section-markers",
+      "files": ["terms.html", "privacy.html"],
+      "reason": "Legal documents use standard section numbering (Section 1, 2, 3) which triggers the AI marker rule — this is correct legal formatting, not AI editorial scaffolding"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /css/
+Disallow: /js/
+Disallow: /photos/
+Disallow: /hero-frames/
+Disallow: /videos/
+
+Sitemap: https://mamastable.co.uk/sitemap.xml
