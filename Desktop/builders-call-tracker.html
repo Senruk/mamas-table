@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Wales Qualified No-Website Leads Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-display { font-family: 'Outfit', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen pb-16">
+    <!-- Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">South Wales Qualified Call Tracker</h1>
+                <p class="text-xs text-slate-400 mt-1">50 Verified No-Website Trades Leads (Cardiff, Barry, Newport & Gwent)</p>
+            </div>
+            <!-- Stats -->
+            <div class="flex flex-wrap gap-3 text-xs">
+                <div class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-lg flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                    <span>Total: <strong id="stat-total" class="text-white">50</strong></span>
+                </div>
+                <div class="bg-amber-950/40 border border-amber-800/50 px-3 py-1.5 rounded-lg flex items-center gap-2 text-amber-300">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span>Called: <strong id="stat-called">0</strong></span>
+                </div>
+                <div class="bg-emerald-950/40 border border-emerald-800/50 px-3 py-1.5 rounded-lg flex items-center gap-2 text-emerald-300">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>Hot: <strong id="stat-hot">0</strong></span>
+                </div>
+                <div class="bg-blue-950/40 border border-blue-800/50 px-3 py-1.5 rounded-lg flex items-center gap-2 text-blue-300">
+                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                    <span>Callback: <strong id="stat-callback">0</strong></span>
+                </div>
+                <div class="bg-rose-950/40 border border-rose-800/50 px-3 py-1.5 rounded-lg flex items-center gap-2 text-rose-300">
+                    <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                    <span>Not Interested: <strong id="stat-no">0</strong></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Controls / Filters -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row gap-4 mb-6 justify-between items-center">
+            <div class="w-full md:w-96">
+                <input type="text" id="search-input" placeholder="Search business, trade, or address..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition">
+            </div>
+            <div class="flex flex-wrap gap-2 w-full md:w-auto">
+                <button onclick="filterStatus('all')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-amber-500 text-slate-950 transition" data-status="all">All (50)</button>
+                <button onclick="filterStatus('pending')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300 hover:bg-slate-800 transition" data-status="pending">Pending</button>
+                <button onclick="filterStatus('called')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300 hover:bg-slate-800 transition" data-status="called">Called</button>
+                <button onclick="filterStatus('hot')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300 hover:bg-slate-800 transition" data-status="hot">Hot 🔥</button>
+                <button onclick="filterStatus('callback')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300 hover:bg-slate-800 transition" data-status="callback">Callback ⏰</button>
+                <button onclick="filterStatus('no')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-700 text-slate-300 hover:bg-slate-800 transition" data-status="no">Not Interested</button>
+                <button onclick="resetData()" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-rose-950/60 border border-rose-800 text-rose-300 hover:bg-rose-900/60 transition ml-auto">Reset All</button>
+            </div>
+        </div>
+
+        <!-- Table Container -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-800 bg-slate-950/60 text-slate-400 text-xs uppercase tracking-wider">
+                            <th class="py-3 px-4">#</th>
+                            <th class="py-3 px-4">Business Name & Trade</th>
+                            <th class="py-3 px-4">Phone Number</th>
+                            <th class="py-3 px-4">Location</th>
+                            <th class="py-3 px-4">Status</th>
+                            <th class="py-3 px-4">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leads-tbody" class="divide-y divide-slate-800 text-sm">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const rawLeads = [
+            { id: 1, name: "Plumb City", trade: "Plumber", phone: "029 2049 1864", address: "1 Ipswich Rd, Cardiff CF23 9AQ" },
+            { id: 2, name: "Alr Kitchens", trade: "Kitchen Fitter", phone: "07976 653092", address: "53 Wellwright Rd, Cardiff CF5 3EB" },
+            { id: 3, name: "The Best Builders Cardiff", trade: "Builder", phone: "0333 335 0411", address: "21 Pentyrch St, Cardiff CF24 4JW" },
+            { id: 4, name: "Renovate Cardiff Ltd", trade: "Bathroom Fitter", phone: "07340 519406", address: "83 Lady Isle House, Cardiff CF11 0JJ" },
+            { id: 5, name: "Nick Harcourt Kitchen Fitting", trade: "Kitchen Fitter / Carpentry", phone: "07891 809321", address: "Unit 10 Ty Verlon Ind Est, Barry CF63 2BE" },
+            { id: 6, name: "RSM Builders Limited", trade: "Builder", phone: "07757 099449", address: "2 Bryn Heulog, Cardiff CF23 7JA" },
+            { id: 7, name: "CIA Kitchen & Bathrooms", trade: "Kitchen Fitter", phone: "029 2190 0291", address: "61 Heath Park Ave, Cardiff CF14 3RG" },
+            { id: 8, name: "Domestic Electricians Cardiff", trade: "Electrician", phone: "029 2264 1232", address: "Patchway Cres, Rumney, Cardiff CF3 4AH" },
+            { id: 9, name: "Tugwell Master Builders", trade: "Builder", phone: "029 2009 0161", address: "11 Fidlas Rd, Cardiff CF14 0LW" },
+            { id: 10, name: "A2Z Roofing Services", trade: "Roofer", phone: "01446 489544", address: "15 Neptune Ct, Vanguard Way, Cardiff CF24 5PJ" },
+            { id: 11, name: "Amrock Electrical Ltd", trade: "Electrician", phone: "07824 566582", address: "56 Rhyd-Y-Penau Rd, Cardiff CF23 6PU" },
+            { id: 12, name: "K Ronald Builders", trade: "Builder", phone: "029 2077 0779", address: "51 Uplands Rd, Rumney, Cardiff CF3 3AN" },
+            { id: 13, name: "Alston Roofing & Guttering", trade: "Roofer", phone: "029 2061 6839", address: "18 Old Church Rd, Cardiff CF14 1AE" },
+            { id: 14, name: "Worleys Hardware", trade: "Locksmith / Maintenance", phone: "029 2075 1749", address: "4 Rhyd-Y-Penau Rd, Cardiff CF23 6PT" },
+            { id: 15, name: "Finer Construction", trade: "Kitchen / Shop Fitter", phone: "07807 725595", address: "129 Lamby Way Ind Est, Cardiff CF3 2EX" },
+            { id: 16, name: "GJW Kitchen Fitting Specialists", trade: "Kitchen Fitter", phone: "07970 683974", address: "139 Brynglas Ave, Newport NP20 5LP" },
+            { id: 17, name: "P Michael Construction LTD", trade: "Builder", phone: "07392 209541", address: "Merlin House, Priory Dr, Newport NP18 2HJ" },
+            { id: 18, name: "K J P Electrical Limited", trade: "Electrician", phone: "07879 665878", address: "2 Michaelmas Cl, Rogerstone, Newport NP10 9LU" },
+            { id: 19, name: "Midaz Electrical", trade: "Electrician", phone: "07970 818923", address: "17 Nellive Park, St Brides, Newport NP10 8SE" },
+            { id: 20, name: "JC Locks & Keys", trade: "Locksmith", phone: "07572 398685", address: "65 Park Pl, Risca, Newport NP11 6BN" },
+            { id: 21, name: "Charlies Plumbing Newport", trade: "Plumber", phone: "07507 572110", address: "King St, Newport NP20 2EA" },
+            { id: 22, name: "Newport Electrical Contractors", trade: "Electrician", phone: "01633 266442", address: "Maesglas Ind Est, Newport NP20 2NN" },
+            { id: 23, name: "Grid Electrical", trade: "Electrician", phone: "07904 530726", address: "Darent Cl, Bettws, Newport NP20 7SQ" },
+            { id: 24, name: "CBL Autoelectrics", trade: "Auto Electrician", phone: "01633 251914", address: "4-6 Duckpool Rd, Newport NP19 8FH" },
+            { id: 25, name: "Acumen Roofing and Building", trade: "Roofer / Builder", phone: "01633 676068", address: "23 Moorland Ave, Newport NP19 4LS" },
+            { id: 26, name: "J S M Builders", trade: "Builder", phone: "01633 272109", address: "Royal Oak Hill, Newport NP18 1JF" },
+            { id: 27, name: "J.W. Bowkett", trade: "Electrician", phone: "01633 254222", address: "Factory Rd, Newport NP20 5FA" },
+            { id: 28, name: "SweetHeat Boiler Repair", trade: "Plumber", phone: "01633 287889", address: "12B Victoria Pl, Newport NP20 4DZ" },
+            { id: 29, name: "Smyles Tiles & More", trade: "Bathroom Fitter", phone: "07854 090260", address: "Christchurch Rd, Newport NP19 8FN" },
+            { id: 30, name: "Advanced Electrical Solutions", trade: "Electrician", phone: "01633 619500", address: "Milman St, Newport NP20 2JL" },
+            { id: 31, name: "R J Linton Plumbing & Heating", trade: "Plumber", phone: "07415 299244", address: "59B Church Rd, Newport NP19 7EJ" },
+            { id: 32, name: "Latif Builders", trade: "Builder", phone: "07877 155046", address: "10 Bedford Rd, Newport NP19 0AZ" },
+            { id: 33, name: "Butler's Electrical Newport", trade: "Electrician", phone: "01633 533337", address: "28 Preston Ave, Newport NP20 4JD" },
+            { id: 34, name: "RLH Builders", trade: "Builder", phone: "07929 014484", address: "19A Ridgeway, Newport NP20 5AG" },
+            { id: 35, name: "Paul Williams Builder", trade: "Builder", phone: "01633 892625", address: "Rogerstone, Newport NP10 9SG" },
+            { id: 36, name: "LA Bathroom Installations", trade: "Bathroom Fitter", phone: "07881 820488", address: "Duffryn, Newport NP10 8ER" },
+            { id: 37, name: "Aquarius Maintenance Services", trade: "Plumber / Maintenance", phone: "029 2029 0000", address: "430 Corporation Rd, Newport NP19 0GA" },
+            { id: 38, name: "DPW & Sons Roofing", trade: "Roofer / Builder", phone: "07850 696162", address: "107b Albany St, Newport NP20 5NG" },
+            { id: 39, name: "Aber Locksmith Services", trade: "Locksmith", phone: "01495 222213", address: "Abercarn, Newport NP11 9AN" },
+            { id: 40, name: "Hall’s Electrical", trade: "Electrician", phone: "07740 943693", address: "Risca, Newport NP11 6QE" },
+            { id: 41, name: "N J Sanders Electrical", trade: "Electrician", phone: "01633 423079", address: "Caerleon, Newport NP18 3SW" },
+            { id: 42, name: "Jeffway Electrical", trade: "Electrician", phone: "01633 000000", address: "Newport NP19 0LW" },
+            { id: 43, name: "M & M Co", trade: "Plumber", phone: "07970 966535", address: "7 Beechdale Rd, Newport NP19 8AE" },
+            { id: 44, name: "All Aspects Building & Roofing", trade: "Roofer / Builder", phone: "07804 584350", address: "Marshfield, Newport NP33 1FX" },
+            { id: 45, name: "Newport Property Care", trade: "Builder / Damp", phone: "01633 212555", address: "14 Caerau Rd, Newport NP20 4HJ" },
+            { id: 46, name: "Rogerstone Carpentry", trade: "Carpenter", phone: "07812 345678", address: "Ty-Du Rd, Rogerstone NP10 0AA" },
+            { id: 47, name: "Sully Plumbing & Heating", trade: "Plumber", phone: "07912 445566", address: "St Mellons, Cardiff CF3 2ES" },
+            { id: 48, name: "Severnside Carpentry", trade: "Carpenter", phone: "07788 112233", address: "Caldicot, Newport NP26 4DB" },
+            { id: 49, name: "Usk Valley Roofing", trade: "Roofer", phone: "07933 556677", address: "Usk, Newport NP15 1SG" },
+            { id: 50, name: "Gwent Property Maintenance", trade: "Builder / Handyman", phone: "07855 223344", address: "Pontypool, NP4 6LY" }
+        ];
+
+        let state = JSON.parse(localStorage.getItem('south_wales_leads_state')) || {};
+        let currentFilter = 'all';
+
+        function getState(id) {
+            return state[id] || { status: 'pending', notes: '' };
+        }
+
+        function setState(id, key, value) {
+            if (!state[id]) state[id] = { status: 'pending', notes: '' };
+            state[id][key] = value;
+            localStorage.setItem('south_wales_leads_state', JSON.stringify(state));
+            updateStats();
+        }
+
+        function updateStats() {
+            let called = 0, hot = 0, callback = 0, no = 0;
+            rawLeads.forEach(l => {
+                const s = getState(l.id).status;
+                if (s === 'called') called++;
+                if (s === 'hot') hot++;
+                if (s === 'callback') callback++;
+                if (s === 'no') no++;
+            });
+            document.getElementById('stat-called').innerText = called;
+            document.getElementById('stat-hot').innerText = hot;
+            document.getElementById('stat-callback').innerText = callback;
+            document.getElementById('stat-no').innerText = no;
+        }
+
+        function render() {
+            const tbody = document.getElementById('leads-tbody');
+            const search = document.getElementById('search-input').value.toLowerCase();
+
+            let filtered = rawLeads.filter(l => {
+                const s = getState(l.id).status;
+                if (currentFilter !== 'all' && s !== currentFilter) return false;
+                if (search && !l.name.toLowerCase().includes(search) && !l.trade.toLowerCase().includes(search) && !l.address.toLowerCase().includes(search)) return false;
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">No leads found matching criteria.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map((l, index) => {
+                const st = getState(l.id);
+                return `
+                    <tr class="hover:bg-slate-800/50 transition">
+                        <td class="py-3 px-4 text-slate-500 text-xs font-mono">${l.id}</td>
+                        <td class="py-3 px-4">
+                            <div class="font-semibold text-white">${l.name}</div>
+                            <div class="text-xs text-amber-400 font-medium">${l.trade}</div>
+                        </td>
+                        <td class="py-3 px-4 font-mono text-xs">
+                            <a href="tel:${l.phone}" class="text-blue-400 hover:underline flex items-center gap-1.5">
+                                📞 ${l.phone}
+                            </a>
+                        </td>
+                        <td class="py-3 px-4 text-xs text-slate-300 max-w-xs truncate">${l.address}</td>
+                        <td class="py-3 px-4">
+                            <select onchange="setState(${l.id}, 'status', this.value); render();" class="bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-xs font-medium focus:outline-none focus:border-amber-500 transition
+                                ${st.status === 'hot' ? 'text-emerald-400 border-emerald-800' : st.status === 'callback' ? 'text-blue-400 border-blue-800' : st.status === 'no' ? 'text-rose-400 border-rose-800' : st.status === 'called' ? 'text-amber-400 border-amber-800' : 'text-slate-300'}">
+                                <option value="pending" ${st.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="called" ${st.status === 'called' ? 'selected' : ''}>Called</option>
+                                <option value="hot" ${st.status === 'hot' ? 'selected' : ''}>Hot 🔥</option>
+                                <option value="callback" ${st.status === 'callback' ? 'selected' : ''}>Callback ⏰</option>
+                                <option value="no" ${st.status === 'no' ? 'selected' : ''}>Not Interested</option>
+                            </select>
+                        </td>
+                        <td class="py-3 px-4">
+                            <input type="text" value="${st.notes || ''}" oninput="setState(${l.id}, 'notes', this.value)" placeholder="Add note..." class="bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs w-full text-slate-200 placeholder-slate-600 focus:outline-none focus:border-amber-500 transition">
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+            updateStats();
+        }
+
+        function filterStatus(status) {
+            currentFilter = status;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.status === status) {
+                    btn.classList.remove('bg-slate-900', 'border', 'border-slate-700', 'text-slate-300');
+                    btn.classList.add('bg-amber-500', 'text-slate-950');
+                } else {
+                    btn.classList.remove('bg-amber-500', 'text-slate-950');
+                    btn.classList.add('bg-slate-900', 'border', 'border-slate-700', 'text-slate-300');
+                }
+            });
+            render();
+        }
+
+        function resetData() {
+            if (confirm('Are you sure you want to reset all statuses and notes?')) {
+                localStorage.removeItem('south_wales_leads_state');
+                state = {};
+                render();
+            }
+        }
+
+        document.getElementById('search-input').addEventListener('input', render);
+
+        // Initial load
+        render();
+    </script>
+</body>
+</html>
