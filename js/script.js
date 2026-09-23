@@ -171,5 +171,22 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     requestAnimationFrame(loop);
   })();
-
+  // --- Date-based section visibility ---
+  (function(){
+    const now = new Date();
+    
+    // Community Event: show until end of Sunday 27th September 2026
+    const eventDate = new Date(2026, 8, 27, 23, 59, 59); // Sept 27, 2026 23:59:59
+    const eventSection = document.getElementById('community-event');
+    if (eventSection && now > eventDate) {
+      eventSection.style.display = 'none';
+    }
+    
+    // Halloween Specials: show until end of 10th October 2026
+    const halloweenDate = new Date(2026, 9, 10, 23, 59, 59); // Oct 10, 2026 23:59:59
+    const halloweenSection = document.getElementById('halloween');
+    if (halloweenSection && now > halloweenDate) {
+      halloweenSection.style.display = 'none';
+    }
+  })();
 });
