@@ -842,3 +842,6 @@ footer ul li a:hover{color:var(--accent)}
 /* Social icons are hidden in the mobile header (they live in the burger menu/footer) */
 @media(max-width:900px){.nav-inner > .nav-socials{display:none}}
 @media(max-width:900px){.xmas{scroll-margin-top:0}.xmas-group{scroll-margin-top:1rem}}
+
+/* Room for the announcement bar + taller nav above hero content */
+@media(min-width:901px){.hero{padding-top:10rem}}
