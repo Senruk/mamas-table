@@ -102,11 +102,11 @@ nav.scrolled{
 .nav-cta{
   display:inline-flex;align-items:center;
   padding:.5rem 1.25rem;border-radius:50px;
-  background:var(--accent);color:var(--white);
+  background:var(--accent);color:var(--ink);
   font-size:.8125rem;font-weight:600;
   transition:background .25s,transform .25s;
 }
-.nav-cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.nav-cta:hover{background:var(--accent-hover);color:var(--white);transform:translateY(-1px)}
 
 /* --- Hero --- */
 .hero{
@@ -173,9 +173,9 @@ nav.scrolled{
   transition:all .3s;border:2px solid transparent;
 }
 .btn-primary{
-  background:var(--accent);color:var(--white);border-color:var(--accent);
+  background:var(--accent);color:var(--ink);border-color:var(--accent);
 }
-.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:var(--white);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .btn-outline{
   background:var(--white);color:var(--ink);border-color:var(--border);
 }
@@ -225,7 +225,7 @@ nav.scrolled{
   display:inline-block;
   font-size:.7rem;font-weight:600;text-transform:uppercase;
   letter-spacing:.12em;
-  color:var(--accent);
+  color:var(--accent-dark);
   margin-bottom:.6rem;
 }
 
@@ -280,7 +280,7 @@ a:focus-visible, button:focus-visible, .nav-burger:focus-visible, .sticky-cta:fo
   align-items:center;
   justify-content:center;
   background:var(--accent);
-  color:var(--white);
+  color:var(--ink);
   padding:.75rem 1.25rem;
   border-radius:50px;
   font-weight:600;
@@ -289,7 +289,7 @@ a:focus-visible, button:focus-visible, .nav-burger:focus-visible, .sticky-cta:fo
   transition:background .3s, transform .2s;min-height:44px;
   cursor:pointer;
 }
-.sticky-cta:hover{background:var(--accent-hover);transform:translateY(-2px);}
+.sticky-cta:hover{background:var(--accent-hover);color:var(--white);transform:translateY(-2px);}
 /* Form validation UI */
 .form-error{color:var(--error);font-size:.75rem;}
 input:invalid, textarea:invalid, select:invalid{border-color:var(--error);}
@@ -377,7 +377,7 @@ input:valid, textarea:valid, select:valid{border-color:var(--success);}
   color:var(--accent);
 }
 .contact-detail .icon svg{width:18px;height:18px}
-.contact-detail a:hover{color:var(--accent)}
+.contact-detail a:hover{color:var(--accent-dark)}
 
 .collection-map{margin-top:.5rem;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08)}
 
@@ -404,11 +404,11 @@ input:valid, textarea:valid, select:valid{border-color:var(--success);}
 .form-error{display:block;font-size:.75rem;color:#c00;margin-top:4px;min-height:0}
 .btn-submit{
   width:100%;padding:.8rem;border-radius:50px;
-  background:var(--accent);color:var(--white);
+  background:var(--accent);color:var(--ink);
   border:2px solid var(--accent);font-size:.925rem;font-weight:600;
   cursor:pointer;transition:all .3s;
 }
-.btn-submit:hover{background:var(--accent-hover);border-color:var(--accent-hover);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-submit:hover{background:var(--accent-hover);color:var(--white);border-color:var(--accent-hover);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
 
 /* --- CTA --- */
 .cta-block{
@@ -435,7 +435,7 @@ footer{
   padding:3rem 0 1.5rem;
 }
 .footer-grid{
-  display:grid;grid-template-columns:2fr 1fr 1fr;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;
   gap:clamp(2rem,4vw,3rem);
   margin-bottom:2rem;
 }
@@ -648,3 +648,197 @@ footer ul li a:hover{color:var(--accent)}
 }
 .nav-social-link:hover{color:var(--accent);background:var(--accent-light)}
 
+
+/* ============================================
+   Christmas promotion
+   ============================================ */
+:root{
+  --xmas-red:#8E1B2C;
+  --xmas-red-deep:#5E0F1B;
+  --xmas-green:#1F3D2B;
+  --xmas-gold:#D9B45A;
+  --accent-dark:#8a6508;
+}
+
+/* Announcement bar (sits at top of the fixed nav) */
+.xmas-bar{
+  display:block;
+  background:var(--xmas-red);
+  color:#FFF6E6;
+  text-align:center;
+  font-size:.85rem;font-weight:600;
+  padding:.5rem 1rem;
+  margin-top:calc(-.75rem - env(safe-area-inset-top));
+  padding-top:calc(.5rem + env(safe-area-inset-top));
+  margin-bottom:.6rem;
+  letter-spacing:.01em;
+  transition:background .25s;
+}
+.xmas-bar:hover{background:var(--xmas-red-deep)}
+.xmas-bar u{text-underline-offset:3px;text-decoration-color:var(--xmas-gold)}
+
+/* Highlighted nav link */
+.nav-links a.nav-xmas{color:var(--xmas-gold);font-weight:700}
+.nav-links a.nav-xmas:hover{color:#f1d58c}
+
+/* Hero pill */
+.hero-xmas-pill{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--xmas-red);color:#FFF6E6;
+  border:1px solid rgba(217,180,90,.6);
+  padding:.4rem 1rem;border-radius:50px;
+  font-size:.85rem;font-weight:600;
+  margin-bottom:1.1rem;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);
+  transition:transform .25s,background .25s;
+}
+.hero-xmas-pill:hover{background:var(--xmas-red-deep);transform:translateY(-1px)}
+.btn-xmas{background:var(--xmas-red);color:#FFF6E6;border-color:var(--xmas-red)}
+.btn-xmas:hover{background:var(--xmas-red-deep);border-color:var(--xmas-red-deep);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+
+/* Section */
+.xmas{
+  position:relative;
+  background:#FBF6EC;
+  padding:0 0 var(--section-pad);
+  overflow:hidden;
+  scroll-margin-top:9rem;
+}
+.xmas-head{
+  text-align:center;color:#FFF6E6;
+  position:relative;
+  padding:var(--section-pad) 0 clamp(2.5rem,5vw,3.5rem);
+  margin-bottom:clamp(.5rem,2vw,1rem);
+}
+.xmas-head::before{
+  content:'';position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(217,180,90,.22), transparent 70%),
+    linear-gradient(180deg,var(--xmas-red-deep),var(--xmas-red));
+}
+.xmas .container{position:relative;z-index:0}
+.xmas-head .tag{color:var(--xmas-gold)}
+.xmas-head h2{
+  font-family:var(--head);
+  font-size:clamp(2rem,4.5vw,3.4rem);
+  font-weight:700;line-height:1.05;letter-spacing:-.015em;
+  margin-bottom:.6rem;text-wrap:balance;
+}
+.xmas-head p{max-width:560px;margin:0 auto;color:rgba(255,246,230,.88);font-size:1rem}
+.xmas-facts{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.25rem}
+.xmas-facts span{
+  font-size:.8rem;font-weight:600;
+  padding:.35rem .9rem;border-radius:50px;
+  background:rgba(255,246,230,.12);border:1px solid rgba(217,180,90,.45);color:#FFF6E6;
+}
+.xmas-jump{display:flex;justify-content:center;gap:.6rem;margin-top:1.5rem;flex-wrap:wrap}
+.xmas-jump a{
+  font-size:.875rem;font-weight:600;padding:.55rem 1.2rem;border-radius:50px;
+  background:#FFF6E6;color:var(--xmas-red);transition:transform .2s,background .2s;
+}
+.xmas-jump a:hover{transform:translateY(-1px);background:#fff}
+
+.xmas-group{margin-top:clamp(2rem,4vw,3rem);scroll-margin-top:6rem}
+.xmas-group-title{
+  display:flex;align-items:center;gap:1rem;
+  font-family:var(--head);font-size:clamp(1.4rem,2.6vw,1.9rem);
+  color:var(--xmas-green);margin-bottom:.35rem;
+}
+.xmas-group-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--xmas-gold),transparent)}
+.xmas-group-note{font-size:.9rem;color:var(--ink-muted);margin-bottom:1.25rem;font-style:italic}
+
+.xmas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.xmas-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:var(--shadow);
+  transition:transform .3s,box-shadow .3s;
+}
+.xmas-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.xmas-media{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--xmas-green)}
+.xmas-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.xmas-card:hover .xmas-media img{transform:scale(1.04)}
+.xmas-media--art{
+  display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(217,180,90,.25), transparent 45%),
+    linear-gradient(135deg,var(--xmas-green),#13281c);
+  color:var(--xmas-gold);
+}
+.xmas-media--art.red{background:radial-gradient(circle at 70% 25%, rgba(217,180,90,.25), transparent 45%),linear-gradient(135deg,var(--xmas-red),var(--xmas-red-deep))}
+.xmas-media--art svg{width:34%;height:auto;opacity:.9}
+.xmas-price{
+  position:absolute;top:.75rem;right:.75rem;
+  background:var(--xmas-red);color:#FFF6E6;
+  font-family:var(--head);font-weight:700;font-size:1.25rem;line-height:1;
+  padding:.45rem .75rem;border-radius:50px;
+  border:1.5px solid var(--xmas-gold);
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+.xmas-price small{font-family:var(--body);font-size:.7rem;font-weight:600;opacity:.85}
+.xmas-body{padding:1.1rem 1.2rem 1.25rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.xmas-body h4{font-family:var(--head);font-size:1.2rem;line-height:1.2;color:var(--xmas-red)}
+.xmas-size{font-size:.85rem;color:var(--ink-muted);font-weight:500}
+.xmas-opts{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.25rem}
+.xmas-opts span{
+  font-size:.72rem;font-weight:600;
+  padding:.2rem .6rem;border-radius:50px;
+  background:var(--accent-light);border:1px solid var(--border);color:var(--ink);
+}
+.xmas-order{
+  margin-top:auto;padding-top:.75rem;
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:.85rem;font-weight:700;color:var(--xmas-green);
+}
+.xmas-order:hover{color:var(--xmas-red)}
+.xmas-order svg{width:16px;height:16px}
+
+.xmas-cta{
+  margin-top:clamp(2rem,4vw,3rem);
+  text-align:center;
+  background:var(--xmas-green);color:#FFF6E6;
+  border-radius:var(--radius);
+  padding:clamp(1.5rem,4vw,2.5rem);
+  border:1px solid rgba(217,180,90,.4);
+}
+.xmas-cta h3{font-family:var(--head);font-size:clamp(1.4rem,3vw,2rem);margin-bottom:.4rem}
+.xmas-cta p{color:rgba(255,246,230,.85);margin:0 auto 1.25rem;max-width:520px;font-size:.95rem}
+.xmas-cta .btn-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.xmas-cta .btn-outline{background:transparent;color:#FFF6E6;border-color:rgba(255,246,230,.5)}
+.xmas-cta .btn-outline:hover{background:rgba(255,246,230,.1);border-color:#FFF6E6}
+
+/* Products page Christmas banner */
+.xmas-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;
+  background:linear-gradient(135deg,var(--xmas-red),var(--xmas-red-deep));
+  color:#FFF6E6;border-radius:var(--radius);
+  padding:1.5rem 1.75rem;border:1px solid rgba(217,180,90,.5);
+  box-shadow:var(--shadow-lg);
+}
+.xmas-banner h2{font-family:var(--head);font-size:clamp(1.3rem,3vw,1.8rem);margin-bottom:.2rem}
+.xmas-banner p{color:rgba(255,246,230,.85);font-size:.9rem}
+.xmas-banner .btn{background:#FFF6E6;color:var(--xmas-red);border-color:#FFF6E6}
+.xmas-banner .btn:hover{background:#fff;transform:translateY(-2px)}
+
+@media(max-width:1024px){.xmas-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.xmas-bar{margin-top:calc(-.75rem - env(safe-area-inset-top))}}
+@media(max-width:600px){
+  .xmas-grid{grid-template-columns:1fr 1fr;gap:.75rem}
+  .xmas-body{padding:.8rem .85rem 1rem}
+  .xmas-body h4{font-size:1rem}
+  .xmas-size{font-size:.78rem}
+  .xmas-price{font-size:1rem;padding:.35rem .6rem;top:.5rem;right:.5rem}
+  .xmas-opts span{font-size:.66rem}
+  .xmas-order{font-size:.78rem}
+  .xmas-bar{font-size:.78rem}
+  .xmas-banner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:380px){.xmas-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){.xmas-card,.xmas-card:hover,.xmas-media img{transition:none;transform:none}}
+
+/* Social icons are hidden in the mobile header (they live in the burger menu/footer) */
+@media(max-width:900px){.nav-inner > .nav-socials{display:none}}
+@media(max-width:900px){.xmas{scroll-margin-top:0}.xmas-group{scroll-margin-top:1rem}}
